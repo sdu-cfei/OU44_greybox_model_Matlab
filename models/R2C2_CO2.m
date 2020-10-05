@@ -37,13 +37,7 @@ outputs = matlab_solvers(@(time, states) R2C2(time, states, inputs), [tstart, ts
 end
 
 function dxdt=R2C2(t, T, u)
-%load('parameters')
-tmass = 25; imass = 17.89; % Zone and wall internal thermal mass factors [-]
-shgc = 7.94; occeff = 1.2; %Solar heat gain coefficient [-] and occupant heat generation effectiveness
-CO2n = 435.45; CO2pp = 0.0398; %CO2 Neutral Level [ppm] and generation per person [m3/h]
-maxVent = 4800; maxHeat = 2689; % Maximum ventilation [m3/h] and radiator heat [W] flowrates
-Vi = 486.5; Vinf = 2292; %air volume [m3] and infiltration rate
-Rext=3.0; Rint=0.05; %External and internal wall resistances
+load('parameters')
 Re = Rext/(3*Vi^(2/3)); Ri = Rint/(3*Vi^(2/3));
 C = tmass*Vi*1.2*1005; Ci = imass*Vi*1.2*1005;
 assert(T(1)<u(4),'wrong assumptions')
