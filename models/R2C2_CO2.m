@@ -37,7 +37,7 @@ outputs = matlab_solvers(@(time, states) R2C2(time, states, inputs), [tstart, ts
 end
 
 function dxdt=R2C2(t, T, u)
-load('parameters')
+load('parameters.mat')
 Re = Rext/(3*Vi^(2/3)); Ri = Rint/(3*Vi^(2/3));
 C = tmass*Vi*1.2*1005; Ci = imass*Vi*1.2*1005;
 assert(T(1)<u(4),'wrong assumptions')
