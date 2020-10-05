@@ -2,7 +2,7 @@
 %Konstantin Filonenko, 21.09.20, SDU Center for energy informatics
 %Reproduced from the original Modelica model of Krzysztof Arendt (SDU Center for Energy Informatics)
 % Example of use: OU44model(400, 15, 0, 21+273.15, 0, -1000)
-function test_OU44_041020
+function R2C2_CO2
 filename='Test1_for_Tsinghua_';
 modelica_solvers = {'Dassl', 'Lsodar', 'Rkfix2',  'Rkfix3',  'Rkfix3', 'Radau', 'Esdirk23a', 'Esdirk34a', 'Esdirk45a', 'Euler', 'Cvode', 'Dopri853', 'Dopri45'};
 lables = {'Tair', 'Twall', 'CO2'};
@@ -11,7 +11,7 @@ for i = 1:3
     figure(i)
     hold on
     for ms=matlab_solvers
-        out = OU44model_051020(str2func(['ode', ms{1}]), 400, 15+273.15, 1, 21+273.15, 1, -1);
+        out = OU44model(str2func(['ode', ms{1}]), 400, 15+273.15, 1, 21+273.15, 1, -1);
         plot(out.x, out.y(i,:),'o')
     end
     for ms=modelica_solvers
@@ -27,7 +27,7 @@ end
 
 end
 
-function outputs = OU44model_051020(matlab_solvers, solrad, Tout, occ, Tvestp, verate, qrad)
+function outputs = OU44model(matlab_solvers, solrad, Tout, occ, Tvestp, verate, qrad)
 [Tair0, Twall0] = deal(20 + 273.15); %Initial temperature of indoor air and inner wall [degC]
 CO20=400; %Initial CO2 concentration [ppmv]
 inputs = [solrad; Tout; occ; Tvestp; verate; qrad];
