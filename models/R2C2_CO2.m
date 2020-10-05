@@ -1,7 +1,7 @@
 %R2C2 model of a building zone
 %Konstantin Filonenko, 21.09.20, SDU Center for energy informatics
 %Reproduced from the original Modelica model of Krzysztof Arendt (SDU Center for Energy Informatics)
-% Example of use: OU44model(400, 15, 0, 21+273.15, 0, -1000)
+%Usage: OU44model(400, 15, 0, 21+273.15, 0, -1000)
 function R2C2_CO2
 filename='Test1_for_Tsinghua_';
 modelica_solvers = {'Dassl', 'Lsodar', 'Rkfix2',  'Rkfix3',  'Rkfix3', 'Radau', 'Esdirk23a', 'Esdirk34a', 'Esdirk45a', 'Euler', 'Cvode', 'Dopri853', 'Dopri45'};
