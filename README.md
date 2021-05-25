@@ -1,6 +1,6 @@
-# Modeling and visualization of the port network
+# ZEM Ports NS GitHub page
 
-Contains components and plotting scripts.
+Simple tools for modeling and visualization of the port network. Contains components and plotting scripts.
 
 
 ## data
